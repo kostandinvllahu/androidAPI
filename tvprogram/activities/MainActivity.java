@@ -7,6 +7,8 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+
 import com.example.tvprogram.R;
 import com.example.tvprogram.adapters.TVShowAdapters;
 import com.example.tvprogram.databinding.ActivityMainBinding;
@@ -51,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements TVShowListener {
            }
        });
        activityMainBinding.imageWatchlist.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), WatchlistActivity.class)));
+       activityMainBinding.imageSearch.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(),SearchActivity.class)));
         getMostPopularTVShows();
     }
 
