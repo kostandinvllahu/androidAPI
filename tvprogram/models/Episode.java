@@ -15,9 +15,8 @@ public class Episode {
    @SerializedName("air_date")
    private String airDate;
 
-   public String getSeason() {
-      return season;
-   }
+
+   public String getSeason() {return season;}
 
    public String getEpisode() {
       return episode;

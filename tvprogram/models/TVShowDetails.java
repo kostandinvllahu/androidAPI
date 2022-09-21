@@ -21,10 +21,10 @@ public class TVShowDetails {
    private String rating;
 
    @SerializedName("genres")
-   private String[] genre;
+   private String[] genres;
 
-   @SerializedName("picture")
-   private String[] picture;
+   @SerializedName("pictures")
+   private String[] pictures;
 
    @SerializedName("episodes")
    private List<Episode> episodes;
@@ -50,11 +50,11 @@ public class TVShowDetails {
    }
 
    public String[] getGenre() {
-      return genre;
+      return genres;
    }
 
    public String[] getPicture() {
-      return picture;
+      return pictures;
    }
 
    public List<Episode> getEpisodes() {

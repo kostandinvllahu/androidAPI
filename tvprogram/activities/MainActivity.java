@@ -3,21 +3,16 @@ package com.example.tvprogram.activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Toast;
-
 import com.example.tvprogram.R;
 import com.example.tvprogram.adapters.TVShowAdapters;
 import com.example.tvprogram.databinding.ActivityMainBinding;
 import com.example.tvprogram.listeners.TVShowListener;
 import com.example.tvprogram.models.TVShow;
 import com.example.tvprogram.viewmodels.MostPopularTVShowsViewModel;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,6 +50,7 @@ public class MainActivity extends AppCompatActivity implements TVShowListener {
                }
            }
        });
+       activityMainBinding.imageWatchlist.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), WatchlistActivity.class)));
         getMostPopularTVShows();
     }
 
@@ -92,12 +88,7 @@ public class MainActivity extends AppCompatActivity implements TVShowListener {
     @Override
     public void onTVShowClicked(TVShow tvShow) {
         Intent intent = new Intent(getApplicationContext(), TVShowDetailsActivity.class);
-        intent.putExtra("id", tvShow.getId());
-        intent.putExtra("name", tvShow.getName());
-        intent.putExtra("startDate", tvShow.getStartDate());
-        intent.putExtra("country", tvShow.getCountry());
-        intent.putExtra("network", tvShow.getNetwork());
-        intent.putExtra("status",tvShow.getStatus());
-        startActivity(intent);
+            intent.putExtra("tvShows", tvShow);
+            startActivity(intent);
     }
 }
